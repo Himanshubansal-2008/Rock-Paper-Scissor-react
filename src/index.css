@@ -1,10 +1,15 @@
-:root{
-  --background-color: white;
-  --border-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Poppins:wght@400;600;800&display=swap');
 
+:root {
+  --primary: #8b5cf6;
+  --background-dark: #0f172a;
+  --panel-bg: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,31 +17,247 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background: var(--background-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
-.main-container{
-  border: 2px solid var(--border-color);
-  padding: 30px 20px;
-  border-radius: 10px;
-  width: fit-content;
-  margin: 50px auto;
+.main-container {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .streak-container {
   display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .streak-container div {
-  border: 2px solid var(--border-color);
-  border-radius: 7px;
+  flex: 1;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.02);
 }
 
-.score-card{
+.streak-container h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.streak-container p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.score-card {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.score-card div{
-  border: 2px solid var(--border-color);
-  border-radius: 7px;
+.score-card div {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.score-card h3 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.score-card p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.play-emoji {
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  min-height: 3.5rem;
+}
+
+.score-card h1 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--secondary);
+  font-size: 1.5rem;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.choices button {
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choices button:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-color: var(--primary);
+  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3);
+}
+
+.choices button:active {
+  transform: translateY(2px);
+}
+
+.main-container > h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  min-height: 3rem;
+  text-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.main-container > button {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-main);
+  padding: 0.75rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 2rem;
+}
+
+.main-container > button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--text-main);
+}
+
+.history-section {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  text-align: left;
+}
+
+.history-section h3 {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.history-list::-webkit-scrollbar {
+  width: 6px;
+}
+.history-list::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.history-list::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 10px;
+}
+
+.history-item {
+  background: rgba(0,0,0,0.2);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+  font-size: 0.95rem;
+  transition: transform 0.2s;
+}
+
+.history-item:hover {
+  transform: scale(1.01);
+  background: rgba(255,255,255,0.05);
+}
+
+.history-item strong {
+  color: var(--primary);
+}
+
+@media (max-width: 600px) {
+  .streak-container {
+    flex-wrap: wrap;
+  }
+  .streak-container div {
+    min-width: 45%;
+  }
+  .score-card {
+    flex-direction: column;
+  }
+  .choices button {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
 }
